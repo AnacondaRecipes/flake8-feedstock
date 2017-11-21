@@ -1,7 +1,7 @@
 {%set name = "flake8" %}
-{%set version = "3.4.1" %}
+{%set version = "3.5.0" %}
 {%set hash_type = "sha256" %}
-{%set hash_val = "c20044779ff848f67f89c56a0e4624c04298cd476e25253ac0c36f910a1a11d8" %}
+{%set hash_val = "7253265f7abd8b313e3892944044a365e3f4ac3fcdcfb4298f55ee9ddf188ba0" %}
 
 package:
   name: {{ name }}
@@ -17,7 +17,7 @@ build:
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
-  build:
+  host:
     - pytest-runner
     - python
     - setuptools >=30.0.0
