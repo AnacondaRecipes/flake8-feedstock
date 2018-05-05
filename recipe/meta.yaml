@@ -11,6 +11,8 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   {{ hash_type }}: {{ hash_val }}
+  patches:
+    - 68782675b7f00c5d24c24e424efd1fbcb0705224.patch
 
 build:
   number: 1
@@ -26,7 +28,7 @@ requirements:
     - configparser  # [py2k]
     - enum34  # [py2k or py33]
     - mccabe >=0.6.0,<0.7.0
-    - pycodestyle >=2.0.0,<2.4.0
+    - pycodestyle >=2.0.0,<2.5.0
     - pyflakes >=1.5.0,<1.7.0
     - python
     - setuptools >=30.0.0
