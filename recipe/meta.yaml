@@ -16,7 +16,7 @@ build:
     - flake8 = flake8.main.cli:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
     - pytest-runner
