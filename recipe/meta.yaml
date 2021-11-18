@@ -9,6 +9,7 @@ source:
   sha256: 806e034dda44114815e23c16ef92f95c91e4c71100ff52813adf7132a6ad870d
 
 build:
+  skip: True  # [py<37]
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
@@ -17,7 +18,7 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - pytest-runner
     - setuptools >=30.0.0
@@ -31,6 +32,9 @@ requirements:
 test:
   imports:
     - flake8
+  requires:
+    - pip
+    - python <3.10
   source_files:
     - src/flake8
     - tests/integration
@@ -40,6 +44,7 @@ test:
   commands:
     - flake8 --ignore=D203,W503,E203 src/flake8 tests/integration tests/unit setup.py  # [unix]
     - flake8 --ignore=D203,W503,E203 src\\flake8 tests\\integration tests\\unit setup.py  # [win]
+    - pip check
 
 about:
   home: http://flake8.pycqa.org/
