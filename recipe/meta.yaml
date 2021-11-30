@@ -26,9 +26,9 @@ requirements:
   run:
     - python >=3.6
     - mccabe >=0.6.0,<0.7.0
-    - pycodestyle >=2.8.0,<2.9.0
-    - pyflakes >=2.4.0,<2.5.0
-    - importlib-metadata  # [py<38]
+    - pycodestyle
+    - pyflakes
+    - importlib-metadata
     - setuptools >=30.0.0
 test:
   imports:
