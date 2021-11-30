@@ -46,7 +46,7 @@ test:
     - flake8 --ignore=D203,W503,E203 src/flake8 tests/integration tests/unit setup.py  # [unix]
     - flake8 --ignore=D203,W503,E203 src\\flake8 tests\\integration tests\\unit setup.py  # [win]
     # the pip test does not work at this time
-    # - pip check
+    - pip check
 
 about:
   home: http://flake8.pycqa.org/
