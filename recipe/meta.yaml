@@ -29,7 +29,6 @@ requirements:
     - pycodestyle
     - pyflakes
     - importlib-metadata
-    - setuptools
 test:
   imports:
     - flake8
