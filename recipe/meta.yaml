@@ -9,8 +9,7 @@ source:
   sha256: 806e034dda44114815e23c16ef92f95c91e4c71100ff52813adf7132a6ad870d
 
 build:
-  skip: True  # [py<37]
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
@@ -20,21 +19,20 @@ requirements:
   host:
     - python
     - pip
-    - pytest-runner
     - wheel
     - setuptools >=30.0.0
   run:
     - python >=3.6
-    - mccabe >=0.6.0,<0.7.0
-    - pycodestyle
-    - pyflakes
+    # mccabe 0.7.0 is a noarch python package now and it hasn't broken changes for flake8
+    - mccabe >=0.6.0,<0.8.0
+    - pycodestyle >=2.8.0,<2.9.0
+    - pyflakes >=2.4.0,<2.5.0
     - importlib-metadata
 test:
   imports:
     - flake8
   requires:
     - pip
-    - python <3.10
   source_files:
     - src/flake8
     - tests/integration
@@ -44,8 +42,9 @@ test:
   commands:
     - flake8 --ignore=D203,W503,E203 src/flake8 tests/integration tests/unit setup.py  # [unix]
     - flake8 --ignore=D203,W503,E203 src\\flake8 tests\\integration tests\\unit setup.py  # [win]
-    # the pip test does not work at this time
-    - pip check
+    # 2022/03/24: the pip test does not work at this time
+    # Enable it when mccabe bump a verion number
+    #- pip check
 
 about:
   home: http://flake8.pycqa.org/
@@ -53,7 +52,7 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: Your Tool For Style Guide Enforcement
-  doc_url: http://flake8.pycqa.org/
+  doc_url: https://flake8.pycqa.org/
   dev_url: https://gitlab.com/pycqa/flake8
 
 extra:
