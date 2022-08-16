@@ -10,7 +10,7 @@ source:
 
 build:
   skip: True  # [py<37]
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
@@ -28,7 +28,7 @@ requirements:
     - mccabe >=0.6.0,<0.7.0
     - pycodestyle
     - pyflakes
-    - importlib-metadata
+    - importlib-metadata <4.3
 test:
   imports:
     - flake8
@@ -48,12 +48,12 @@ test:
     - pip check
 
 about:
-  home: http://flake8.pycqa.org/
+  home: https://flake8.pycqa.org/
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Your Tool For Style Guide Enforcement
-  doc_url: http://flake8.pycqa.org/
+  doc_url: https://flake8.pycqa.org/
   dev_url: https://gitlab.com/pycqa/flake8
 
 extra:
