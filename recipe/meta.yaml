@@ -9,7 +9,6 @@ source:
   sha256: 806e034dda44114815e23c16ef92f95c91e4c71100ff52813adf7132a6ad870d
 
 build:
-  skip: True  # [py<37]
   number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
@@ -18,16 +17,16 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.7
     - pip
     - pytest-runner
     - wheel
     - setuptools >=30.0.0
   run:
-    - python >=3.6
-    - mccabe >=0.6.0,<0.7.0
-    - pycodestyle
-    - pyflakes
+    - python >=3.7
+    - mccabe >=0.6.0,<0.7.0  # [py<38] 
+    - pycodestyle >=2.8.0,<2.9.0
+    - pyflakes >=2.4.0,<2.5.0
     - importlib-metadata <4.3
 test:
   imports:
