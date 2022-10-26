@@ -44,10 +44,11 @@ test:
     - pip check
 
 about:
-  home: http://flake8.pycqa.org/
+  home: https://flake8.pycqa.org/
   license: MIT
   license_family: MIT
   license_file: LICENSE
+  license_url: https://github.com/PyCQA/flake8/blob/main/LICENSE
   summary: Your Tool For Style Guide Enforcement
   doc_url: https://flake8.pycqa.org/
   dev_url: https://gitlab.com/pycqa/flake8
