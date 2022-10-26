@@ -10,6 +10,7 @@ source:
 
 build:
   number: 2
+  skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - flake8 = flake8.main.cli:main
