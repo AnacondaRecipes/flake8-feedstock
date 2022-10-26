@@ -55,6 +55,7 @@ about:
     mccabe, and third-party plugins to check the style and quality of
     some python code.
   doc_url: https://flake8.pycqa.org/
+  doc_source_url: https://github.com/PyCQA/flake8/blob/main/docs/source/index.rst
   dev_url: https://gitlab.com/pycqa/flake8
 
 extra:
