@@ -24,7 +24,7 @@ requirements:
   run:
     - python >=3.6
     # mccabe 0.7.0 is a noarch python package now and it hasn't broken changes for flake8
-    - mccabe >=0.6.0,<0.8.0
+    - mccabe >=0.6.0,<0.7.0
     - pycodestyle >=2.8.0,<2.9.0
     - pyflakes >=2.4.0,<2.5.0
     - importlib-metadata
