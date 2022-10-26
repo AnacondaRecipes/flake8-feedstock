@@ -21,7 +21,7 @@ requirements:
     - wheel
     - setuptools >=30.0.0
   run:
-    - python >=3.6
+    - python
     # mccabe 0.7.0 is a noarch python package now and it hasn't broken changes for flake8
     - mccabe >=0.6.0,<0.7.0
     - pycodestyle >=2.8.0,<2.9.0
