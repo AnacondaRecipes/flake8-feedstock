@@ -42,9 +42,7 @@ test:
   commands:
     - flake8 --ignore=D203,W503,E203 src/flake8 tests/integration tests/unit setup.py  # [unix]
     - flake8 --ignore=D203,W503,E203 src\\flake8 tests\\integration tests\\unit setup.py  # [win]
-    # 2022/03/24: the pip test does not work at this time
-    # Enable it when mccabe bump a verion number
-    #- pip check
+    - pip check
 
 about:
   home: http://flake8.pycqa.org/
