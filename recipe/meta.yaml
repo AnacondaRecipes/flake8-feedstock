@@ -50,6 +50,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
+  description: |
+    Flake8 runs all the tools by launching the single flake8 command. It displays the warnings in a per-file, merged output.
   summary: Your Tool For Style Guide Enforcement
   doc_url: https://flake8.pycqa.org/
   dev_url: https://gitlab.com/pycqa/flake8
