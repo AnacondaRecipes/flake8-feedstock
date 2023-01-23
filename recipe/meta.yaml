@@ -10,18 +10,19 @@ source:
 
 build:
   number: 0
+  skip: True # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - flake8 = flake8.main.cli:main
 
 requirements:
   host:
-    - python >=3.8.1
+    - python
     - pip
     - wheel
     - setuptools >=30.0.0
   run:
-    - python >=3.8.1
+    - python
     - mccabe >=0.7.0,<0.8.0
     - pycodestyle >=2.10.0,<2.11.0
     - pyflakes >=3.0.0,<3.1.0
@@ -42,7 +43,7 @@ test:
     - flake8 --ignore=D203,W503,E203 src\\flake8 tests\\integration tests\\unit setup.py  # [win]
     # 2022/03/24: the pip test does not work at this time
     # Enable it when mccabe bump a verion number
-    #- pip check
+    - pip check
 
 about:
   home: http://flake8.pycqa.org/
