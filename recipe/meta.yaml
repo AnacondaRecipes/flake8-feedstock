@@ -22,7 +22,7 @@ requirements:
     - wheel
     - setuptools >=30.0.0
   run:
-    - python
+    - python >=3.8.1
     - mccabe >=0.7.0,<0.8.0
     - pycodestyle >=2.10.0,<2.11.0
     - pyflakes >=3.0.0,<3.1.0
@@ -54,7 +54,7 @@ about:
     Flake8 runs all the tools by launching the single flake8 command. It displays the warnings in a per-file, merged output.
   summary: Your Tool For Style Guide Enforcement
   doc_url: https://flake8.pycqa.org/
-  dev_url: https://gitlab.com/pycqa/flake8
+  dev_url: https://github.com/PyCQA/flake8
 
 extra:
   recipe-maintainers:
