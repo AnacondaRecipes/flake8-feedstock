@@ -1,4 +1,4 @@
-{% set version = "4.0.1" %}
+{% set version = "6.0.0" %}
 
 package:
   name: flake8
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/flake8/flake8-{{ version }}.tar.gz
-  sha256: 806e034dda44114815e23c16ef92f95c91e4c71100ff52813adf7132a6ad870d
+  sha256: c61007e76655af75e6785a931f452915b371dc48f56efd765247c8fe68f2b181
 
 build:
-  number: 1
-  noarch: python
+  number: 0
+  skip: True # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - flake8 = flake8.main.cli:main
@@ -22,12 +22,11 @@ requirements:
     - wheel
     - setuptools >=30.0.0
   run:
-    - python >=3.6
-    # mccabe 0.7.0 is a noarch python package now and it hasn't broken changes for flake8
-    - mccabe >=0.6.0,<0.8.0
-    - pycodestyle >=2.8.0,<2.9.0
-    - pyflakes >=2.4.0,<2.5.0
-    - importlib-metadata
+    - python >=3.8.1
+    - mccabe >=0.7.0,<0.8.0
+    - pycodestyle >=2.10.0,<2.11.0
+    - pyflakes >=3.0.0,<3.1.0
+
 test:
   imports:
     - flake8
@@ -42,18 +41,18 @@ test:
   commands:
     - flake8 --ignore=D203,W503,E203 src/flake8 tests/integration tests/unit setup.py  # [unix]
     - flake8 --ignore=D203,W503,E203 src\\flake8 tests\\integration tests\\unit setup.py  # [win]
-    # 2022/03/24: the pip test does not work at this time
-    # Enable it when mccabe bump a verion number
-    #- pip check
+    - pip check
 
 about:
-  home: http://flake8.pycqa.org/
+  home: https://flake8.pycqa.org/
   license: MIT
   license_family: MIT
   license_file: LICENSE
+  description: |
+    Flake8 runs all the tools by launching the single flake8 command. It displays the warnings in a per-file, merged output.
   summary: Your Tool For Style Guide Enforcement
   doc_url: https://flake8.pycqa.org/
-  dev_url: https://gitlab.com/pycqa/flake8
+  dev_url: https://github.com/PyCQA/flake8
 
 extra:
   recipe-maintainers:
