@@ -32,15 +32,8 @@ test:
     - flake8
   requires:
     - pip
-  source_files:
-    - src/flake8
-    - tests/integration
-    - tests/unit
-    - setup.py
 
   commands:
-    - flake8 --ignore=D203,W503,E203 src/flake8 tests/integration tests/unit setup.py  # [unix]
-    - flake8 --ignore=D203,W503,E203 src\\flake8 tests\\integration tests\\unit setup.py  # [win]
     - pip check
 
 about:
