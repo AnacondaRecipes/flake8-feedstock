@@ -1,4 +1,4 @@
-{% set version = "6.0.0" %}
+{% set version = "6.1.0" %}
 
 package:
   name: flake8
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/flake8/flake8-{{ version }}.tar.gz
-  sha256: c61007e76655af75e6785a931f452915b371dc48f56efd765247c8fe68f2b181
+  sha256: d5b3857f07c030bdb5bf41c7f53799571d75c4491748a3adcd47de929e34cd23
 
 build:
   number: 0
   skip: True # [py<38]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   entry_points:
     - flake8 = flake8.main.cli:main
 
@@ -22,10 +22,10 @@ requirements:
     - wheel
     - setuptools >=30.0.0
   run:
-    - python >=3.8.1
+    - python
     - mccabe >=0.7.0,<0.8.0
-    - pycodestyle >=2.10.0,<2.11.0
-    - pyflakes >=3.0.0,<3.1.0
+    - pycodestyle >=2.11.0,<2.12.0
+    - pyflakes >=3.1.0,<3.2.0
 
 test:
   imports:
