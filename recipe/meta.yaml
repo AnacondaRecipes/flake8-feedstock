@@ -38,7 +38,7 @@ test:
   requires:
     - pip
   commands:
-    # Cannot run pytest since source does not come with tests.
+    # Cannot run pytest since PyPI distributed source does not come with tests.
     - pip check
 
 about:

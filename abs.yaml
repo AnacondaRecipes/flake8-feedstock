@@ -1,3 +1,0 @@
-aggregate_branch: 3.12
-channels:
-  - https://staging.continuum.io/prefect/fs/pycodestyle-feedstock/pr6/01b7561
