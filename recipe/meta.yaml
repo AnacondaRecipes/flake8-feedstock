@@ -1,4 +1,4 @@
-{% set version = "7.0.0" %}
+{% set version = "7.1.1" %}
 
 package:
   name: flake8
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/f/flake8/flake8-{{ version }}.tar.gz
-  sha256: 33f96621059e65eec474169085dc92bf26e7b2d47366b70be2f67ab80dc25132
+  sha256: 049d058491e228e03e67b390f311bbf88fce2dbaa8fa673e7aea87b7198b8d38
 
 build:
   number: 0
@@ -24,15 +24,21 @@ requirements:
   run:
     - python
     - mccabe >=0.7.0,<0.8.0
-    - pycodestyle >=2.11.0,<2.12.0
+    - pycodestyle >=2.12.0,<2.13.0
     - pyflakes >=3.2.0,<3.3.0
 
 test:
   imports:
     - flake8
+    - flake8.api
+    - flake8.formatting
+    - flake8.main
+    - flake8.options
+    - flake8.plugins
   requires:
     - pip
   commands:
+    # Cannot run pytest since PyPI distributed source does not come with tests.
     - pip check
 
 about:
