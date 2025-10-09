@@ -1,16 +1,17 @@
-{% set version = "7.1.1" %}
+{% set name = "flake8" %}
+{% set version = "7.3.0" %}
 
 package:
-  name: flake8
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/f/flake8/flake8-{{ version }}.tar.gz
-  sha256: 049d058491e228e03e67b390f311bbf88fce2dbaa8fa673e7aea87b7198b8d38
+  url: https://github.com/PyCQA/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 71a7d2ec4166f83c6fc66e6465a45c49b4565ee29b69f27b335366ce101d8c2b
 
 build:
   number: 0
-  skip: True # [py<38]
+  skip: True # [py<39]
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   entry_points:
     - flake8 = flake8.main.cli:main
@@ -24,10 +25,13 @@ requirements:
   run:
     - python
     - mccabe >=0.7.0,<0.8.0
-    - pycodestyle >=2.12.0,<2.13.0
-    - pyflakes >=3.2.0,<3.3.0
+    - pycodestyle >=2.14.0,<2.15.0
+    - pyflakes >=3.4.0,<3.5.0
 
 test:
+  source_files:
+    - tests
+    - bin/gen-pycodestyle-plugin
   imports:
     - flake8
     - flake8.api
@@ -35,14 +39,16 @@ test:
     - flake8.main
     - flake8.options
     - flake8.plugins
+  commands:
+    - pip check
+    - flake8 --help
+    - pytest -v tests
   requires:
     - pip
-  commands:
-    # Cannot run pytest since PyPI distributed source does not come with tests.
-    - pip check
+    - pytest
 
 about:
-  home: https://flake8.pycqa.org/
+  home: https://flake8.pycqa.org
   license: MIT
   license_family: MIT
   license_file: LICENSE
