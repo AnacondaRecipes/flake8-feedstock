@@ -45,7 +45,7 @@ test:
     - pytest -v tests
   requires:
     - pip
-    - pytest
+    - pytest !=3.0.5,!=5.2.3
 
 about:
   home: https://flake8.pycqa.org
