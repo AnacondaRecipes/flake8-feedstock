@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   entry_points:
     - flake8 = flake8.main.cli:main
@@ -25,13 +25,14 @@ requirements:
   run:
     - python
     - mccabe >=0.7.0,<0.8.0
-    - pycodestyle >=2.14.0,<2.15.0
-    - pyflakes >=3.4.0,<3.5.0
+    - pycodestyle >=2.15.0,<2.16.0
+    - pyflakes >=4.0.0,<4.1.0
 
 test:
   source_files:
     - tests
     - bin/gen-pycodestyle-plugin
+    - docs/source/user/error-codes.rst
   imports:
     - flake8
     - flake8.api
@@ -42,7 +43,7 @@ test:
   commands:
     - pip check
     - flake8 --help
-    - pytest -v tests
+    - pytest -vv tests
   requires:
     - pip
     - pytest !=3.0.5,!=5.2.3
