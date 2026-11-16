@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<310]
+  skip: true  # [py<311]
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   entry_points:
     - flake8 = flake8.main.cli:main
@@ -26,7 +26,7 @@ requirements:
     - python
     - mccabe >=0.7.0,<0.8.0
     - pycodestyle >=2.15.0,<2.16.0
-    - pyflakes >=4.0.0,<4.1.0
+    - pyflakes >=4.1.0,<4.2.0
 
 test:
   source_files:
